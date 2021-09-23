@@ -5,7 +5,10 @@ const output = document.getElementById('output');
 
 input.addEventListener('input', () => {
   let result = new CountAge(input.value);
-  result.age;
+  output.value = result.age;
+  if (input.value == 0 || input.value == null) {
+    output.value = '';
+  }
 });
 
 function CountAge(birthday) {
@@ -15,10 +18,7 @@ function CountAge(birthday) {
       let nowYear = new Date().getFullYear();
       let birthdayYear = this.birthday;
       let age = nowYear - birthdayYear;
-      output.value = age;
-      if (input.value == 0 || input.value == null) {
-        output.value = '';
-      }
+      return age
     },
   })
 }
